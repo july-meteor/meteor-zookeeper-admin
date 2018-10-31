@@ -335,6 +335,7 @@ export default {
             type: "success"
           });
           if (this.form.parentPath != this.ROOT_PATH) {
+            this.status = 'edit'
             //新增节点
             this.loading.treeLoading = true;
             const newChild = {
