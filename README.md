@@ -1,6 +1,6 @@
 <p align="center">
 
-  #Meteor-curator-ui
+  # Meteor-curator-ui
   
 </p>
 
@@ -45,7 +45,7 @@
   - [Meteor-curator](https://gitee.com/y747718944/meteor-curator)
   - [Meteor-curator-admin](https://gitee.com/y747718944/meteor-curator-admin)
 
-##系统架构图
+## 系统架构图
 
  <p align="center">
   <img width="900" src="https://img-blog.csdnimg.cn/20181101162041302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE2ODgyMDcz,size_16,color_FFFFFF,t_70">
@@ -72,7 +72,7 @@
 </dependency>
 ```
 
-##meteor.yml配置
+## meteor.yml配置
 
 ```
 # zookeeper服务器地址  默认为:"localhost:2181"  可以多个使用","隔开 如: zk-1:2181,zk-2:2181,zk-3:2181
