@@ -39,15 +39,16 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">{{ $t('login.logIn') }}</el-button>
 
-
       <div class="tips">
         <span style="margin-right:18px;">{{ $t('login.username') }} : test</span>
         <span>{{ $t('login.password') }} : {{ $t('login.any') }}</span>
       </div>
-
+      <div class="tips">
+        <span style="margin-right:18px;">{{ $t('login.username') }} : admin</span>
+        <span>{{ $t('login.password') }} : helloworld</span>
+      </div>
 
     </el-form>
-
 
   </div>
 </template>
@@ -58,7 +59,7 @@ import { isvalidUsername } from '@/utils/validate'
 import LangSelect from '@/components/LangSelect'
 export default {
   name: 'Login',
-  components:{LangSelect},
+  components: { LangSelect },
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
@@ -127,7 +128,7 @@ export default {
           return false
         }
       })
-    },
+    }
   }
 }
 </script>
