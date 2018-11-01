@@ -1,5 +1,7 @@
 <p align="center">
-   <h2>Meteor-curator-ui</h2>
+
+  #Meteor-curator-ui
+  
 </p>
 
 <p align="center">
@@ -18,15 +20,11 @@
   <a href="https://travis-ci.org/PanJiaChen/vue-element-admin" rel="nofollow">
     <img src="https://travis-ci.org/PanJiaChen/vue-element-admin.svg?branch=master" alt="Build Status">
   </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE">
+  <a href="https://github.com/18106960985/meteor-curator-admin/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
-  <a href="https://github.com/PanJiaChen/vue-element-admin/releases">
-    <img src="https://img.shields.io/github/release/PanJiaChen/vue-element-admin.svg" alt="GitHub release">
-  </a>
-  <a href="https://gitter.im/vue-element-admin/discuss">
-    <img src="https://badges.gitter.im/Join%20Chat.svg" alt="gitter">
-  </a>
+
+
 
 </p>
 
@@ -48,6 +46,7 @@
   - [Meteor-curator-admin](https://gitee.com/y747718944/meteor-curator-admin)
 
 ##系统架构图
+
  <p align="center">
   <img width="900" src="https://img-blog.csdnimg.cn/20181101162041302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE2ODgyMDcz,size_16,color_FFFFFF,t_70">
 </p>
@@ -64,6 +63,7 @@
 
 # 使用手册
 ## Maven依赖
+
 ```
 <dependency>
     <groupId>meteor-curator</groupId>
@@ -73,6 +73,7 @@
 ```
 
 ##meteor.yml配置
+
 ```
 # zookeeper服务器地址  默认为:"localhost:2181"  可以多个使用","隔开 如: zk-1:2181,zk-2:2181,zk-3:2181
 servers: localhost:2181
