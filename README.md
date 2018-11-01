@@ -34,105 +34,81 @@
 
 ## 简介
 
-- [Meteor-curator-core](https://github.com/18106960985/meteor-curator) 是一个对zookeeper操作的集成方案，其核心设计目的
+
+- [Meteor-curator-core](https://github.com/18106960985/meteor-curator)  是一个对zookeeper操作的集成方案，其核心设计目的
   - 对内高内聚、无入侵, 采用fastjson序列化与反序列化,内置了数据本地缓存，实现节点监听
   - 对外开箱即用、易扩展、轻量级,提供丰富API方法，它可以帮助你快速的管理zookeeper。
 - [Meteor-curator-web](https://github.com/18106960985/meteor-curator) 不光是  [Meteor-curator-core](https://github.com/18106960985/meteor-curator) 的一个小示例，它为 [Meteor-curator-core](https://github.com/18106960985/meteor-curator)提供了可视化操作，给使用者更舒服的体验。
 - [Meteor-curator-admin](https://github.com/18106960985/meteor-curator-admin) 采用了居说是最新的前端技术栈的[vue-element-ui](https://github.com/PanJiaChen/vue-element-admin)  这里就不做更多阐述，在需要自定义UI的情况下请自行查看该项目说明
 
+- [在线访问](http://111.230.210.81:7788/)
+- [使用文档](https://blog.csdn.net/qq_16882073/article/details/83622399) 
+- [Gitee](https://panjiachen.gitee.io/vue-element-admin/)    码云地址
+  - [Meteor-curator](https://gitee.com/y747718944/meteor-curator)
+  - [Meteor-curator-admin](https://gitee.com/y747718944/meteor-curator-admin)
 
-- [Gitee](https://panjiachen.gitee.io/vue-element-admin/) 国内用户可访问该地址在线预览
-
-
-#前言
-
-## 1.1编写的目的
- 	当你的应用程序以分布式的形式被实现的时候，服务之间的错误和竞争是不可避免的，这使得它们在变化的存在下变得十分脆弱并难以管理，及时正确的执行了，这些服务也会应为管理的复杂性而增加不必要的精力，那么为什么不将这些交给Zookeeper？它能提供：维护配置信息，域名服务，分布式同步和组服务！</br>
-Admin-web用于获取服务不同环境下的配置信息，对数据进行本地化并保证其数据与服务器同步，web上提供了可视化操作管理ZK，减少了部署时候修改配置的操作以及配置信息同步
-
-##1.2.系统架构图
+##系统架构图
  <p align="center">
-  <img width="900" src="../doc/Zookeeper应用图.svg">
+  <img width="900" src="https://img-blog.csdnimg.cn/20181101162041302.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE2ODgyMDcz,size_16,color_FFFFFF,t_70">
 </p>
-
 
 **如有问题请先看上述使用文档和文章，若不能满足，欢迎 issue 和 pr**
 
  <p align="center">
-  <img width="900" src="https://wpimg.wallstcn.com/a5894c1b-f6af-456e-82df-1151da0839bf.png">
+  <img width="900" src="https://img-blog.csdnimg.cn/20181101163654155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE2ODgyMDcz,size_16,color_FFFFFF,t_70">
+</p>
+ <p align="center">
+  <img width="900" src="https://img-blog.csdnimg.cn/20181101163853531.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE2ODgyMDcz,size_16,color_FFFFFF,t_70">
 </p>
 
-## 功能
 
+# 使用手册
+## Maven依赖
 ```
-- 登录 / 注销
-
-- 权限验证
-  - 页面权限
-  - 指令权限
-  - 二步登录
-
-- 多环境发布
-  - dev sit stage prod
-
-- 全局功能
-  - 国际化多语言
-  - 多种动态换肤
-  - 动态侧边栏（支持多级路由嵌套）
-  - 动态面包屑
-  - 快捷导航(标签页)
-  - Svg Sprite 图标
-  - 本地mock数据
-  - Screenfull全屏
-  - 自适应收缩侧边栏
-
-- 编辑器
-  - 富文本
-  - Markdown
-  - JSON 等多格式
-
-- Excel
-  - 导出excel
-  - 导出zip
-  - 导入excel
-  - 前端可视化excel
-
-- 表格
-  - 动态表格
-  - 拖拽表格
-  - 树形表格
-  - 内联编辑
-
-- 错误页面
-  - 401
-  - 404
-
-- 組件
-  - 头像上传
-  - 返回顶部
-  - 拖拽Dialog
-  - 拖拽Select
-  - 拖拽看板
-  - 列表拖拽
-  - SplitPane
-  - Dropzone
-  - Sticky
-  - CountTo
-
-- 综合实例
-- 错误日志
-- Dashboard
-- 引导页
-- ECharts 图表
-- Clipboard(剪贴复制)
-- Markdown2html
+<dependency>
+    <groupId>meteor-curator</groupId>
+    <artifactId>curator-core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
 ```
 
-## 开发
+##meteor.yml配置
+```
+# zookeeper服务器地址  默认为:"localhost:2181"  可以多个使用","隔开 如: zk-1:2181,zk-2:2181,zk-3:2181
+servers: localhost:2181
+# 项目以哪个节点作为根节点 不推荐 "/"作为根节点。 默认节点为"/"
+rootPath: /cloud
+# 重连次数 默认 10次
+connCount: 10
+#重新连接的间隔时间 默认 5秒
+connInterval: 5000
+#seessiont 超时时间 默认 180000毫秒
+sesstionTimeOut: 180000
+#连接超时时间 默认 60000毫秒
+connTimtOut: 60000
+# 监听节点 类型为List  curator-admin项目推荐 监听"/"，其他项目请自行斟酌
+listener:
+          - /cloud
+# 忽略监听节点 类型为List   
+listenerIgnores:
+          - /meteor
+```
+
+## 使用方式
+可以引入meteor.yml  请放置在resource下 。或者
+为 CuratorConfig.java内的静态变量赋值 如
+```
+ CuratorConfig.ZK_SERVERS = localhost:2181
+ CuratorConfig.ROOT_PATH = "/"
+ ………………
+```
+
+
+## 前端开发
 
 ```bash
 # 克隆项目
-git clone https://github.com/PanJiaChen/vue-element-admin.git
+git clone https://github.com/18106960985/meteor-curator-admin.git
 
 # 安装依赖
 npm install
@@ -154,43 +130,10 @@ npm run build:sit
 
 # 构建生产环境
 npm run build:prod
+
+#打包完成后将src平级的 meteor文件里的内容复制到 后端项目 curator-admin 的 main/resources/下 依托spring boot内嵌的tomcat运行.
+#这是为了开发分离，部署合并
 ```
-
-## 其它
-
-```bash
-# --report to build with bundle size analytics
-npm run build:prod
-
-# --generate a bundle size analytics. default: bundle-report.html
-npm run build:prod --generate_report
-
-# --preview to start a server in local to preview
-npm run build:prod --preview
-
-# lint code
-npm run lint
-
-# auto fix
-npm run lint -- --fix
-```
-
-更多信息请参考 [使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
-
-## Changelog
-
-Detailed changes for each release are documented in the [release notes](https://github.com/PanJiaChen/vue-element-admin/releases).
-
-## Online Demo
-
-[在线 Demo](http://panjiachen.github.io/vue-element-admin)
-
-## Donate
-
-如果你觉得这个项目帮助到了你，你可以帮作者买一杯果汁表示鼓励 :tropical_drink:
-![donate](https://panjiachen.github.io/donate/donation.png)
-
-[Paypal Me](https://www.paypal.me/panfree23)
 
 ## Browsers support
 
