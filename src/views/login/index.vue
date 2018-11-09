@@ -45,7 +45,7 @@
       </div>
       <div class="tips">
         <span style="margin-right:18px;">{{ $t('login.username') }} : admin</span>
-        <span>{{ $t('login.password') }} : helloworld</span>
+        <span>{{ $t('login.password') }} : 123456</span>
       </div>
 
     </el-form>
@@ -78,7 +78,7 @@ export default {
     return {
       loginForm: {
         username: 'test',
-        password: '1111111'
+        password: '123456'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],

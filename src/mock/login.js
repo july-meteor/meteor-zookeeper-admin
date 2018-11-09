@@ -22,7 +22,7 @@ export default {
 
     const { username,password } = JSON.parse(config.body)
     if (username == 'admin'){
-      if (password !=  'helloworld'){
+      if (password !=  '123456'){
         return
       }
     }
